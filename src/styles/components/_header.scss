@@ -1,0 +1,24 @@
+// Header
+
+.header {
+  position: fixed;
+  width: 100%;
+  transform: translateZ(0);
+  backface-visibility: hidden;
+
+  &-menu {
+    @extend %clearfix;
+
+    margin: 0;
+
+    &-item {
+      display: inline-block;
+      margin: 0;
+      float: left;
+
+      &-link {
+        padding: 0 2rem;
+      }
+    }
+  }
+}

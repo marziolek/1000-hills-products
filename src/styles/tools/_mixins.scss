@@ -1,0 +1,33 @@
+// Mixins
+
+/* 320px */
+@mixin bp-small {
+  @media (min-width: $bp-small) {
+    @content;
+  }
+}
+
+/* 768px */
+@mixin bp-medium {
+  @media (min-width: $bp-medium) {
+    @content;
+  }
+}
+
+/* 1024px */
+@mixin bp-large {
+  @media (min-width: $bp-large) {
+    @content;
+  }
+}
+
+/* 1600px */
+@mixin bp-full {
+  @media (min-width: $bp-full) {
+    @content;
+  }
+}
+
+@mixin trans($type: all, $duration: .3s, $easing: ease) {
+  transition: $type $duration $easing;
+}

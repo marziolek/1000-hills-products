@@ -1,0 +1,14 @@
+{
+  "generator-chisel": {
+    "config": {
+      "name": "1000 Hills Products",
+      "author": "Marcin Ziółek",
+      "nameSlug": "1000-hills-products",
+      "nameCamel": "1000hillsproducts",
+      "features": {
+        "has_jquery": true,
+        "has_wp": true
+      }
+    }
+  }
+}

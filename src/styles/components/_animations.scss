@@ -1,0 +1,9 @@
+// Animations
+
+.bodybag {
+  @include trans(opacity);
+  
+  &.fade-out {
+    opacity: 0;
+  }
+}

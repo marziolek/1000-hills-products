@@ -1,0 +1,21 @@
+// Page
+
+html {
+  background: $color-bg;
+  color: $color-text;
+  font-family: $font-serif;
+  font-size: 0.875rem;
+  line-height: 2;
+
+  @include bp-medium {
+    font-size: 1em;
+  }
+
+  @include bp-large {
+    font-size: 1.125em;
+  }
+
+  @include bp-full {
+    font-size: 1.25em;
+  }
+}
