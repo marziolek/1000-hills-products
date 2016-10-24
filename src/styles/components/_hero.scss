@@ -10,16 +10,19 @@
   .owl-carousel,
   .owl-wrapper-outer, 
   .owl-wrapper,
-  .owl-item,
-  .owl-item > div {
+  .owl-item {
     height: 100%;
   }
 
   .owl-item {
-    > div {
+    overflow: hidden;
+    
+    &--bg {
+      height: 100%;
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: center top;
+      background-position: center center;
+      backface-visibility: hidden;
     }
 
     img {

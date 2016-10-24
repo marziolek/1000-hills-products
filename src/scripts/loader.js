@@ -3,7 +3,7 @@
 var $ = require('jquery');
 
 var loader = function () {
-  var $win = $(window), bodybag = $('.bodybag'), loader = $('.loader:not(.loader-home)'), loaderHome = $('.loader-home'), imgOutside = loaderHome.find('.loader-home-logo--outside'), loaded = false, tween, imgOutsideScaleTime = 0.4, imgOutsideRotateTime = 5;
+  var $win = $(window), bodybag = $('.bodybag'), loader = $('.loader:not(.loader-home)'), loaderHome = $('.loader-home'), imgOutside = document.getElementsByClassName('loader-home-logo--outside'), loaded = false, tween, imgOutsideScaleTime = 0.4, imgOutsideRotateTime = 5;
 
   function onRepeat() {
     if (loaded) {

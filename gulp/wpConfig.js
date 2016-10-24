@@ -10,7 +10,7 @@ function prepareWpConfig(config) {
   var overwrite = ['assets', 'base', 'revManifest', 'scripts', 'styles'];
   overwrite.forEach((name) => {
     dest[name] = path.join(theme, dest[name]);
-  })
+  });
   return config;
 }
 

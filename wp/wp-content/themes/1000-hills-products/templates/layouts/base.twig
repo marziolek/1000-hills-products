@@ -62,8 +62,8 @@
     
     {% if is_front_page %}
       <div class="loader loader-home show">
-        <img src="{{site.theme.link}}/dist/assets/images/logo-outside.png" alt="logo part" class="loader-home-logo loader-home-logo--outside" width="270" height="259">
-        <img src="{{site.theme.link}}/dist/assets/images/logo-inside.png" alt="logo part" class="loader-home-logo loader-home-logo--inside" width="270" height="259">
+        <img src="{{ assetPath('assets/images/logo-outside.png') }}" alt="logo part" class="loader-home-logo loader-home-logo--outside" width="270" height="259">
+        <img src="{{ assetPath('assets/images/logo-inside.png') }}" alt="logo part" class="loader-home-logo loader-home-logo--inside" width="270" height="259">
       </div>
     {% endif %}
   </body>
