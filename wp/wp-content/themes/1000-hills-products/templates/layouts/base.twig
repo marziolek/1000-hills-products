@@ -11,15 +11,25 @@
       <header class="header">
         {% block header %}
         <div class="wrapper">
-          <h1 class="hdr-logo" role="banner">
-            <a class="hdr-logo-link" href="{{site.url}}" rel="home">{{site.name}}</a>
-          </h1>
-          <nav id="nav-main" class="nav-main" role="navigation">
-            {% include "partials/menu.twig" with {'menu': menu.get_items} %}
-          </nav><!-- #nav -->
+          <div class="c-container c-container-full">
+            <div class="header-logo" role="banner">
+              <a class="header-logo-link" href="{{site.url}}/" rel="home">
+                <img src="{{site.theme.link}}/dist/assets/images/logo-full.jpg" alt="Logo 1000 Hills Products" width="270" height="259" class="u-hide">
+                <img src="{{site.theme.link}}/dist/assets/images/logo-inside.png" alt="Logo inside 1000 Hills Products" width="170" height="163" class="header-logo-inside">
+                <img src="{{site.theme.link}}/dist/assets/images/logo-outside.png" alt="Logo outside 1000 Hills Products" width="170" height="163" class="header-logo-outside">
+              </a>
+            </div>
+            <nav id="nav-main" class="nav-main" role="navigation">
+              {% include "partials/menu.twig" with {'menu': menu.get_items} %}
+            </nav><!-- #nav -->
+          </div>
         </div>
         {% endblock %}
       </header>
+      
+      <section class="hero">
+        {% include 'partials/hero.twig' %}
+      </section>
 
       <section id="content" role="main" class="content-wrapper">
         <div class="c-container">
@@ -49,5 +59,12 @@
     <div class="loader">
       <div class="loader-spinner"></div>
     </div>
+    
+    {% if is_front_page %}
+      <div class="loader loader-home show">
+        <img src="{{site.theme.link}}/dist/assets/images/logo-outside.png" alt="logo part" class="loader-home-logo loader-home-logo--outside" width="270" height="259">
+        <img src="{{site.theme.link}}/dist/assets/images/logo-inside.png" alt="logo part" class="loader-home-logo loader-home-logo--inside" width="270" height="259">
+      </div>
+    {% endif %}
   </body>
 </html>

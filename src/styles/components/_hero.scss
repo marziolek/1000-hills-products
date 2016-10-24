@@ -1,0 +1,45 @@
+// Hero
+
+.hero {
+  height: 100vh;
+
+  .logged-in & {
+    height: calc(100vh - 32px);
+  }
+
+  .owl-carousel,
+  .owl-wrapper-outer, 
+  .owl-wrapper,
+  .owl-item,
+  .owl-item > div {
+    height: 100%;
+  }
+
+  .owl-item {
+    > div {
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center top;
+    }
+
+    img {
+      display: none !important;
+    }
+  }
+
+  .owl-prev,
+  .owl-next {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+  }
+
+  .owl-prev {
+    left: $space;
+  }
+
+  .owl-next {
+    right: $space;
+  }
+}

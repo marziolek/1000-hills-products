@@ -1,6 +1,11 @@
 // Layout
 
 .c-container {
-  max-width: 900px;
+  max-width: $bp-large;
   margin: 0 auto;
+  padding: 0 $space;
+  
+  &-full {
+    max-width: $bp-full;
+  }
 }
