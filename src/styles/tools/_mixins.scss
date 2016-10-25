@@ -28,6 +28,6 @@
   }
 }
 
-@mixin trans($type: all, $duration: 0.3s, $easing: ease) {
-  transition: $type $duration $easing;
+@mixin trans($type: all, $duration: 0.3s, $delay: 0s, $easing: ease) {
+  transition: $type $duration $delay $easing;
 }

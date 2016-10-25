@@ -1,9 +1,11 @@
 // Settings global
 
 // Font definitions
-$font-georgia: 'Georgia', serif;
-$font-times: 'Times', serif;
-$font-serif: $font-times;
+@import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Playfair+Display:400,400i,700,700i,900,900i');
+
+$font-playfair: 'Playfair Display', serif;
+$font-asap: 'Oswald', sans-serif;
+$font-serif: $font-playfair;
 
 // Breakpoints
 $bp-small: 320px;
@@ -11,7 +13,6 @@ $bp-medium: 768px;
 $bp-large: 1024px;
 $bp-xlarge: 1240px;
 $bp-full: 1600px;
-
 
 // Spacing
 $space: 20px;

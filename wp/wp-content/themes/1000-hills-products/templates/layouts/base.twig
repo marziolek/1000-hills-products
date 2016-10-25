@@ -15,8 +15,8 @@
             <div class="header-logo" role="banner">
               <a class="header-logo-link" href="{{site.url}}/" rel="home">
                 <img src="{{site.theme.link}}/dist/assets/images/logo-full.jpg" alt="Logo 1000 Hills Products" width="270" height="259" class="u-hide">
-                <img src="{{site.theme.link}}/dist/assets/images/logo-inside.png" alt="Logo inside 1000 Hills Products" width="170" height="163" class="header-logo-inside">
-                <img src="{{site.theme.link}}/dist/assets/images/logo-outside.png" alt="Logo outside 1000 Hills Products" width="170" height="163" class="header-logo-outside">
+                <img src="{{site.theme.link}}/dist/assets/images/logo-inside.png" alt="Logo inside 1000 Hills Products" width="170" height="163" class="header-logo-inside" data-0="width: 170px; height: 163px;" data-100="width: 120px; height: 115px;">
+                <img src="{{site.theme.link}}/dist/assets/images/logo-outside.png" alt="Logo outside 1000 Hills Products" width="170" height="163" class="header-logo-outside" data-0="width: 170px; height: 163px;" data-100="width: 120px; height: 115px;">
               </a>
             </div>
             <nav id="nav-main" class="nav-main" role="navigation">
@@ -48,7 +48,7 @@
       </section>
 
       {% block footer %}
-        <footer id="footer">
+        <footer id="footer" class="footer">
           {% include 'partials/footer.twig' %}
         </footer>
         <script src="{{ assetPath('scripts/bundle.js') }}" async></script>

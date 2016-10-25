@@ -2,6 +2,7 @@
 
 .hero {
   height: 100vh;
+  overflow: hidden;
 
   .logged-in & {
     height: calc(100vh - 32px);
@@ -16,7 +17,7 @@
 
   .owl-item {
     overflow: hidden;
-    
+
     &--bg {
       height: 100%;
       background-size: cover;
@@ -44,5 +45,63 @@
 
   .owl-next {
     right: $space;
+  }
+
+  &-heading {
+    position: absolute;
+    top: 50%;
+    transform: translate3d(0,-50%,0);
+    left: 50%;
+    text-align: right;
+    backface-visibility: hidden;
+  }
+
+  &-title {
+    font-size: 5rem;
+    line-height: 1;
+
+    span {
+      display: block;
+
+      &:first-of-type {
+        font-size: 6.25rem;
+      }
+    }
+  }
+
+  &-subtitle {
+    text-transform: uppercase;
+    position: absolute;
+    top: 0;
+    right: 0.2rem;
+    font-size: 0.91rem;
+    font-weight: 400;
+  }
+
+  &-map {
+    width: 180px;
+    stroke-dasharray: 2020;
+    stroke-dashoffset: 2020;
+
+    circle {
+      @include trans(opacity, 0.3s, 2.5s, ease-in-out);
+      
+      opacity: 0;
+    }
+    
+    &.animate {
+      animation: mapDrawOutline 2.5s ease-in-out forwards;
+      
+      circle {
+        opacity: 1;
+      }
+    }
+
+    &--wrapper {
+      position: absolute;
+      top: -1em;
+      right: 100%;
+      transform: translate3d(3.5em,0,0);
+    }
   }
 }

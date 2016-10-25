@@ -1,1 +1,10 @@
 {{ post.get_field('carousel_shortcode')|shortcodes }}
+<header class="hero-heading" data-0="transform: translate3d(0,-50%,0); opacity: 1;" data-100p="transform: translate3d(0,110%,0); opacity: 0;">
+  <h1 class="hero-title">{{ post.get_field('hero_title') }}</h1>
+  <h2 class="hero-subtitle">{{ post.get_field('hero_subtitle') }}</h2>
+  {% if is_front_page %}
+    <div class="hero-map--wrapper">
+      {{ africa_map }}
+    </div>
+  {% endif %}
+</header>

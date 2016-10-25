@@ -22,5 +22,6 @@ $context = Timber::get_context();
 
 // Set a home page variable
 $context['is_front_page'] = 'true';
+$context['africa_map'] = file_get_contents(get_template_directory_uri() . '/dist/assets/images/africa-map.svg', true);
   
 Timber::render(array('single.twig'), $context);

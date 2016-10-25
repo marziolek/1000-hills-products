@@ -14,6 +14,7 @@ var loader = function () {
   function onComplete() {
     loaderHome.removeClass('show');
     bodybag.removeClass('fade-out');
+    bodybag.find('.hero-map').addClass('animate');
     tween.kill();
   }
 
