@@ -1,0 +1,15 @@
+// Product home page
+
+.product-section {
+  padding: 5em 0;
+}
+
+.product-homepage {
+  &-tea {
+    .hero {
+      &:after {
+        @include hero-after(0.5);
+      }
+    }
+  }
+}

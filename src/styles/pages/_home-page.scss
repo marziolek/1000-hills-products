@@ -1,0 +1,37 @@
+// Home page
+
+.brown-section {
+  margin-top: -1px;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: right -100px center;
+  
+  &--left {
+    width: 100%;
+    max-width: 40%;
+    padding-top: 8em;
+    padding-bottom: 1.5em;
+    background-color: $color-brown;
+    background-image: url(../assets/images/asfalt-light.png);
+    background-repeat: repeat;
+    color: $color-yellow-blank;
+    text-align: right;
+    
+    h1 {
+      font-size: 3.5em;
+      word-spacing: 1000px;
+      
+      span {
+        font-size: 1.3em;
+      }
+    }
+    
+    .content {
+      font-size: 0.9em;
+    }
+    
+    a {
+      color: $color-yellow-blank;
+    }
+  }
+}

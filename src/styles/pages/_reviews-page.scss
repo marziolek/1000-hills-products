@@ -1,0 +1,42 @@
+// Reviews page
+
+.page-reviews {
+  &--section {
+    padding-top: 11.5em;
+  }
+
+  &--list {
+    margin: 0;
+    list-style: none;
+
+    &-item {
+      position: relative;
+      margin: 0;
+      padding-top: 3em;
+      padding-left: 4em;
+
+      .c-container {
+        position: relative;
+        padding-bottom: 1em;
+
+        &:after {
+          content: '';
+          position: absolute;
+          left: -2em;
+          right: -2em;
+          bottom: 0;
+          height: 1px;
+          background-color: rgba($color-border, 0.5);
+        }
+      }
+
+      &:last-of-type {
+        margin-bottom: 2em;
+        
+        .c-container:after {
+          display: none;
+        }
+      }
+    }
+  }
+}

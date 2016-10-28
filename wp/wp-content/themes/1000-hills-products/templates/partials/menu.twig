@@ -3,7 +3,17 @@
     {% for item in menu %}
       <li class="header-menu-item {{item.classes | join(' ')}}">
         <a href="{{item.get_link}}" class="header-menu-item-link">{{item.title}}</a>
-        {% include "partials/menu.twig" with {'menu': item.get_children} %}
+        {% if item.get_children %}
+          <ul class="header-menu--submenu">
+            {% for child in item.get_children %}
+              <li class="header-menu-item header-menu--submenu-item {{child.classes | join(' ')}}">
+                <a href="{{child.get_link}}" class="header-menu-item-link header-menu--submenu-item-link">
+                  <span>{{child.title}}</span>
+                </a>
+              </li>
+            {% endfor %}
+          </ul>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>

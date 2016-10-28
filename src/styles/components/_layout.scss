@@ -4,8 +4,21 @@
   max-width: $bp-large;
   margin: 0 auto;
   padding: 0 $space;
-  
+
   &-full {
     max-width: $bp-full;
+  }
+
+  &-half {
+    max-width: $bp-full / 2;
+    margin: 0;
+  }
+
+  &-text {
+    max-width: $bp-medium;
+
+    &-narrow {
+      max-width: $bp-medium - 308;
+    }
   }
 }

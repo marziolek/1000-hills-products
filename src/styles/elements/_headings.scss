@@ -1,7 +1,6 @@
 // Headings
 
 h1, h2 {
-  color: $color-text;
   font-weight: 700;
   line-height: 1.1;
   margin: 0 0 2rem;
@@ -9,6 +8,10 @@ h1, h2 {
 
 h1 {
   font-size: 4rem;
+  
+  .content-wrapper & {
+    font-size: 3rem;
+  }
 }
 
 h2 {

@@ -22,6 +22,14 @@ $context = Timber::get_context();
 
 // Set a home page variable
 $context['is_front_page'] = 'true';
-$context['africa_map'] = file_get_contents(get_template_directory_uri() . '/dist/assets/images/africa-map.svg', true);
-  
-Timber::render(array('single.twig'), $context);
+$context['africa_map'] = file_get_contents(get_template_directory_uri() . '/dist/assets/images/africa-map.svg');
+
+$context['title'] = $post->post_title;
+if ($post->hero_title) {
+  $context['title'] = $post->hero_title;
+};
+if ($post->hero_subtitle) {
+  $context['subtitle'] = $post->hero_subtitle;
+};
+
+Timber::render(array('page-home.twig'), $context);

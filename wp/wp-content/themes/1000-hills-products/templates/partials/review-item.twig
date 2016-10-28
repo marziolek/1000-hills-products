@@ -1,0 +1,15 @@
+<article class="review-item">
+  <blockquote>
+    {{ child.content }}
+    <cite>
+      <p class="review-item--reviewer">
+        {% if child.review_by %}{{ child.review_by }}{% endif %}
+        <span>{% if child.review_by and child.review_company %} from {% endif %}</span>
+        {{ child.review_company }}
+      </p>
+      {% if child.thumbnail %}
+        <img src="{{ child.thumbnail }}" alt="{{ child.review_company }} logo" class="review-item--logo">
+      {% endif %}
+    </cite>
+  </blockquote>
+</article>

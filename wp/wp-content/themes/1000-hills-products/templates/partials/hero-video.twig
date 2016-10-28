@@ -1,0 +1,11 @@
+{% if post.get_field('hero_video') %}
+  <section class="hero-video">
+    <video width="1280" height="720" poster="{{ post.get_field('hero_video_poster') }}" preload="auto" autoplay loop data-0="transform: translate3d(-50%,-50%,0) scale(1);" data-top-bottom="transform: translate3d(-50%,-60%,0) scale(1.2);">
+      <source src="{{ post.get_field('hero_video') }}" type="video/mp4">
+    </video>
+    <h1 class="hero-video--title" data-0="top: 50%; transform: translate3d(0,-50%,0); opacity: 1;" data-100p="top: 90%; transform: translate3d(0,110%,0); opacity: 0;">{{ title }}</h1>
+    {% if subtitle %}
+    <h2 class="hero-video--subtitle" data-0="top: 60%; transform: translate3d(0,-50%,0); opacity: 1; letter-spacing: 0.2em;" data-80p="top: 92%; transform: translate3d(0,520%,0); opacity: 0; letter-spacing: 0.5em">{{ subtitle }}</h2>
+    {% endif %}
+  </section>
+{% endif %}

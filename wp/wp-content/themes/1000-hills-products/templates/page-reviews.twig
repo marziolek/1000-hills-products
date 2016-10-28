@@ -1,0 +1,22 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+<section id="content" role="main" class="content-wrapper page-reviews--section">
+  <div class="c-container c-container-text">
+    {% if no_hero %}
+      <h1 class="page-title">{{ post.title }}</h1>
+    {% endif %}
+  </div>
+  {% if post.get_children %}
+    <ul class="page-reviews--list">
+      {% for child in post.get_children %}
+      <li class="page-reviews--list-item">
+        <div class="c-container c-container-text">
+          {% include 'partials/review-item.twig' %}
+        </div>
+      </li>
+      {% endfor %}
+    </ul>
+  {% endif %}
+</section>
+{% endblock %}

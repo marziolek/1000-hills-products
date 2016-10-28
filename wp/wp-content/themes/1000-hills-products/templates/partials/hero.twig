@@ -1,10 +1,17 @@
 {{ post.get_field('carousel_shortcode')|shortcodes }}
-<header class="hero-heading" data-0="transform: translate3d(0,-50%,0); opacity: 1;" data-100p="transform: translate3d(0,110%,0); opacity: 0;">
-  <h1 class="hero-title">{{ post.get_field('hero_title') }}</h1>
-  <h2 class="hero-subtitle">{{ post.get_field('hero_subtitle') }}</h2>
-  {% if is_front_page %}
-    <div class="hero-map--wrapper">
-      {{ africa_map }}
-    </div>
+{% if template != 'page-product.php' %}
+  <header class="hero-heading" data-0="top: 50%; opacity: 1;" data-100p="top: 100%; opacity: 0;">
+    <h1 class="hero-title">{{ title }}</h1>
+    <h2 class="hero-subtitle">{{ subtitle }}</h2>
+    {% if is_front_page %}
+      <div class="hero-map--wrapper">
+        {{ africa_map }}
+      </div>
+    {% endif %}
+  </header>
+{% else %}
+  <h1 class="hero-video--title" data-0="top: 50%; transform: translate3d(0,-50%,0); opacity: 1;" data-100p="top: 90%; transform: translate3d(0,110%,0); opacity: 0;">{{ title }}</h1>
+  {% if subtitle %}
+    <h2 class="hero-video--subtitle" data-0="top: 60%; transform: translate3d(0,-50%,0); opacity: 1; letter-spacing: 0.2em;" data-80p="top: 92%; transform: translate3d(0,520%,0); opacity: 0; letter-spacing: 0.5em">{{ subtitle }}</h2>
   {% endif %}
-</header>
+{% endif %}

@@ -1,0 +1,26 @@
+{% extends "layouts/base.twig" %}
+
+{% block content %}
+<section id="content" role="main" class="content-wrapper content-wrapper--products">
+  <div class="products-section">
+    <div class="products-section--part products-section--left">
+      <a href="/products/coffee" class="products-section--link">
+        <div class="c-container c-container-half" data-0="transform: translateY(0%);" data-450="transform: translateY(25%);">
+          <h1 class="products-section--title">{{ post.get_field('coffee_section_title') }}</h1>
+          <h2 class="products-section--subtitle">{{ post.get_field('coffee_section_subtitle') }}</h2>
+        </div>
+        <div class="products-section--part-bg" style="background-image: url({{ post.get_field('coffee_section_background_image') }})"></div>
+      </a>
+    </div>
+    <div class="products-section--part products-section--right">
+      <a href="/products/tea" class="products-section--link">
+        <div class="c-container c-container-half" data-0="transform: translateY(0%);" data-450="transform: translateY(25%);">
+          <h1 class="products-section--title">{{ post.get_field('tea_section_title') }}</h1>
+          <h2 class="products-section--subtitle">{{ post.get_field('tea_section_subtitle') }}</h2>
+        </div>
+        <div class="products-section--part-bg" style="background-image: url({{ post.get_field('tea_section_background_image') }})"></div>
+      </a>
+    </div>
+  </div>
+</section>
+{% endblock %}

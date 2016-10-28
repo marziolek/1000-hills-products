@@ -7,15 +7,25 @@ html {
   font-size: 0.875rem;
   line-height: 2;
 
-  @include bp-medium {
+  @include bp-large {
     font-size: 1em;
   }
 
-  @include bp-large {
-    font-size: 1.125em;
-  }
-
   @include bp-full {
-    font-size: 1.25em;
+    font-size: 1.1em;
+  }
+}
+
+body {
+  background-color: $color-yellow-blank;
+  
+  &.no-scroll {
+    overflow: hidden;
+  }
+}
+
+.page {
+  &-title {
+    margin-top: 1em;
   }
 }

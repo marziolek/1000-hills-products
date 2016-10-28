@@ -3,9 +3,14 @@
 .hero {
   height: 100vh;
   overflow: hidden;
+  color: $color-white;
 
   .logged-in & {
-    height: calc(100vh - 32px);
+    height: calc(100vh - #{$admin-bar-h});
+  }
+
+  .page-template-page-product & {
+    height: 80vh;
   }
 
   .owl-carousel,
@@ -54,6 +59,11 @@
     left: 50%;
     text-align: right;
     backface-visibility: hidden;
+
+    .page-template-page-product & {
+      width: 100%;
+      left: 0;
+    }
   }
 
   &-title {
@@ -67,6 +77,10 @@
         font-size: 6.25rem;
       }
     }
+
+    .page-template-page-product & {
+      @extend .hero-video--title;
+    }
   }
 
   &-subtitle {
@@ -76,6 +90,12 @@
     right: 0.2rem;
     font-size: 0.91rem;
     font-weight: 400;
+
+    .page-template-page-product & {
+      @extend .hero-video--subtitle;
+      
+      right: 0;
+    }
   }
 
   &-map {
@@ -85,13 +105,13 @@
 
     circle {
       @include trans(opacity, 0.3s, 2.5s, ease-in-out);
-      
+
       opacity: 0;
     }
-    
+
     &.animate {
       animation: mapDrawOutline 2.5s ease-in-out forwards;
-      
+
       circle {
         opacity: 1;
       }
@@ -102,6 +122,50 @@
       top: -1em;
       right: 100%;
       transform: translate3d(3.5em,0,0);
+    }
+  }
+
+  &-video {
+    position: relative;
+    width: 100%;
+    height: 80vh;
+    overflow: hidden;
+
+    &:after {
+      @include hero-after();
+    }
+
+    video {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate3d(-50%,-50%,0);
+      min-width: 100%; 
+      min-height: 110%; 
+      width: auto;
+      height: auto;
+    }
+
+    &--subtitle,
+    &--title {
+      position: absolute;
+      top: 50%;
+      left: 0;
+      transform: translateY(-50%);
+      width: 100%;
+      text-align: center;
+      font-size: 6em;
+      color: $color-white;
+      z-index: 1;
+    }
+
+    &--subtitle {
+      top: 60%;
+      font-size: 1.2em;
+      font-family: $font-sansserif;
+      font-weight: 400;
+      text-transform: uppercase;
+      letter-spacing: 0.2em;
     }
   }
 }

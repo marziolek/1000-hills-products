@@ -6,7 +6,7 @@
   </head>
 {% endblock %}
 
-  <body class="{{body_class}}" data-template="base.twig">
+  <body class="{{body_class}} {{ no_hero }}" data-template="base.twig">
     <div class="bodybag fade-out">
       <header class="header">
         {% block header %}
@@ -27,25 +27,19 @@
         {% endblock %}
       </header>
       
-      <section class="hero">
-        {% include 'partials/hero.twig' %}
-      </section>
-
-      <section id="content" role="main" class="content-wrapper">
-        <div class="c-container">
-          {% if title %}<h1>{{title}}</h1>{% endif %}
-          <div class="wrapper {{sidebar_class}}">
-            {% block content %}
-            Sorry, no content
-            {% endblock %}
-          </div>
-        </div>
-        {% if sidebar %}
-          <aside class="layout-sidebar">
-            {{sidebar}}
-          </aside>
-        {% endif %}
-      </section>
+      {% if post.get_field('carousel_shortcode') %}
+        <section class="hero">
+          {% include 'partials/hero.twig' %}
+        </section>
+      {% endif %}
+      
+      {% if post.get_field('hero_video') %}
+        {% include 'partials/hero-video.twig' %}
+      {% endif %}
+      
+      {% block content %}
+        Sorry, no content.
+      {% endblock %}
 
       {% block footer %}
         <footer id="footer" class="footer">

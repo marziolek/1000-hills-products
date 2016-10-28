@@ -1,5 +1,4 @@
 <?php
-
 // custom functions
 add_image_size('hero-carousel-size', 1920, 1920, true);
 // end custom functions
