@@ -4,11 +4,14 @@
   height: 100vh;
   overflow: hidden;
   color: $color-white;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.9);
 
   .logged-in & {
     height: calc(100vh - #{$admin-bar-h});
   }
 
+  .page-template-page-contact-us &,
+  .page-template-page-about-us &,
   .page-template-page-product & {
     height: 80vh;
   }
@@ -55,10 +58,15 @@
   &-heading {
     position: absolute;
     top: 50%;
+    right: $space;
     transform: translate3d(0,-50%,0);
-    left: 50%;
     text-align: right;
     backface-visibility: hidden;
+
+    @include bp-medium() {
+      left: 50%;
+      right: auto;
+    }
 
     .page-template-page-product & {
       width: 100%;
@@ -67,15 +75,15 @@
   }
 
   &-title {
-    font-size: 5rem;
+    font-size: 2.5rem;
     line-height: 1;
+
+    @include bp-xlarge() {
+      font-size: 5rem;
+    }
 
     span {
       display: block;
-
-      &:first-of-type {
-        font-size: 6.25rem;
-      }
     }
 
     .page-template-page-product & {
@@ -93,15 +101,19 @@
 
     .page-template-page-product & {
       @extend .hero-video--subtitle;
-      
+
       right: 0;
     }
   }
 
   &-map {
-    width: 180px;
+    width: 120px;
     stroke-dasharray: 2020;
     stroke-dashoffset: 2020;
+
+    @include bp-xlarge() {
+      width: 180px;
+    }
 
     circle {
       @include trans(opacity, 0.3s, 2.5s, ease-in-out);
@@ -119,9 +131,14 @@
 
     &--wrapper {
       position: absolute;
-      top: -1em;
+      top: -2em;
       right: 100%;
-      transform: translate3d(3.5em,0,0);
+      transform: translate3d(1.5em,0,0);
+
+      @include bp-xlarge() {
+        top: -1em;
+        transform: translate3d(3.5em,0,0);
+      }
     }
   }
 
@@ -130,10 +147,6 @@
     width: 100%;
     height: 80vh;
     overflow: hidden;
-
-    &:after {
-      @include hero-after();
-    }
 
     video {
       position: absolute;
@@ -153,10 +166,14 @@
       left: 0;
       transform: translateY(-50%);
       width: 100%;
+      font-size: 3em;
       text-align: center;
-      font-size: 6em;
       color: $color-white;
       z-index: 1;
+
+      @include bp-medium() {
+        font-size: 6em;
+      }
     }
 
     &--subtitle {

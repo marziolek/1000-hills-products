@@ -15,14 +15,20 @@
 
     &-item {
       position: relative;
-      display: inline-block;
+      display: block;
       margin: 0;
-      float: left;
+      float: none;
+
+      @include bp-medium() {
+        display: inline-block;
+        float: left; 
+      }
 
       &-link {
         position: relative;
         display: block;
-        margin: 0 1em;
+        margin: 0 2em;
+        padding: 0.8em 0;
         font-family: $font-oswald;
         font-size: 0.9em;
         font-weight: 400;
@@ -31,24 +37,42 @@
         color: $color-white;
         z-index: 2;
 
-        &:after {
-          width: 0;
+        @include bp-medium() {
+          margin: 0 1em;
+          padding: 0;
+        }
 
-          .current-menu-item & {
+        &:after {
+          display: none;
+        }
+
+        span {
+          position: relative;
+          display: inline-block;
+
+          &:after {
+            @extend %after-link;
+
+            width: 0;
+          }
+        }
+
+        &:hover {
+          span:after {
             width: 100%;
           }
         }
 
         &:hover {
-          &:after {
-            width: 100%;
-          }
-
           + .header-menu--submenu {
             left: 0;
             opacity: 1;
           }
         }
+      }
+
+      &.current-menu-item > .header-menu-item-link span:after {
+        width: 100%;
       }
     }
 
@@ -61,27 +85,43 @@
       background-image: url(../assets/images/home-hills.jpg);
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: center top -160px;
+      background-position: center top;
       z-index: -2;
       opacity: 0;
-      
-      .no-hero & {
+
+      @include bp-medium() {
+        background-position: center top -160px;
+      }
+
+      .no-hero:not(.page-products) & {
         opacity: 1 !important;
+      }
+
+      .scrolled & {
+        @include bp-medium() {
+          @include trans(opacity);
+
+          opacity: 1;
+        }
       }
     }
 
     &--submenu {
       @include trans(opacity);
 
-      position: absolute;
-      left: -9999px;
-      top: 100%;
       min-width: 100%;
       margin: 0;
-      padding: 1em;
-      opacity: 0;
+      padding: 0 3em;
       background-color: $color-brown;
       z-index: 1;
+
+      @include bp-medium() {
+        position: absolute;
+        left: -9999px;
+        top: 100%;
+        padding: 1em;
+        opacity: 0;
+      }
 
       &:before {
         content: 'Products';
@@ -142,7 +182,12 @@
 
   &-logo {
     display: inline-block;
+    width: 120px;
     vertical-align: middle;
+
+    @include bp-medium() {
+      width: auto;
+    }
 
     &-link {
       display: block;

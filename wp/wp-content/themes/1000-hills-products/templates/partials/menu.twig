@@ -2,7 +2,7 @@
   <ul class="header-menu">
     {% for item in menu %}
       <li class="header-menu-item {{item.classes | join(' ')}}">
-        <a href="{{item.get_link}}" class="header-menu-item-link">{{item.title}}</a>
+        <a href="{{item.get_link}}" class="header-menu-item-link"><span>{{item.title}}</span></a>
         {% if item.get_children %}
           <ul class="header-menu--submenu">
             {% for child in item.get_children %}
@@ -17,5 +17,4 @@
       </li>
     {% endfor %}
   </ul>
-  <div class="header-menu--bg" data-82p="opacity: 0;" data-95p="opacity: 1;"></div>
 {% endif %}

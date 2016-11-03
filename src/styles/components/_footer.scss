@@ -1,14 +1,18 @@
 // Footer
 
 .footer {
-  padding: 8rem 0;
+  padding: 4em 0;
   font-size: 0.8rem;
   line-height: 1.4em;
   border-top: 1px solid rgba($color-light-grey, 0.5);
 
+  @include bp-medium() {
+    padding: 8rem 0;
+  }
+
   &-copy {
     position: relative;
-    
+
     + .footer-copy {
       margin-top: 5em;
     }
@@ -17,7 +21,7 @@
   a:hover {
     color: rgba($color-link, 0.8);
   }
-  
+
   p {
     margin: 0;
     text-align: center;
@@ -28,9 +32,15 @@
   }
 
   &-logo {
-    position: absolute;
-    right: $space;
-    top: 50%;
-    margin-top: -60px;
+    margin: 0 auto;
+    margin-top: 2em;
+    display: block;
+
+    @include bp-medium() {
+      position: absolute;
+      right: $space;
+      top: 50%;
+      margin-top: -60px;
+    }
   }
 }

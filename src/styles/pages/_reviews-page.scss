@@ -13,11 +13,16 @@
       position: relative;
       margin: 0;
       padding-top: 3em;
-      padding-left: 4em;
+      
+      &:nth-child(even) {
+        background-color: $color-brown;
+        color: $color-white;
+      }
 
       .c-container {
         position: relative;
         padding-bottom: 1em;
+        overflow: hidden;
 
         &:after {
           content: '';
@@ -31,8 +36,6 @@
       }
 
       &:last-of-type {
-        margin-bottom: 2em;
-        
         .c-container:after {
           display: none;
         }

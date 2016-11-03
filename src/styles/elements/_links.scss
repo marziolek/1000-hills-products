@@ -32,3 +32,9 @@ a {
     height: 0.1em;
     background-color: currentColor;
 }
+
+.ab-item {
+  &:after {
+    display: none;
+  }
+}

@@ -3,14 +3,22 @@
 h1, h2 {
   font-weight: 700;
   line-height: 1.1;
-  margin: 0 0 2rem;
+  margin: 0 0 1rem;
+  
+  @include bp-medium() {
+    margin: 0 0 2rem;
+  }
 }
 
 h1 {
   font-size: 4rem;
-  
+
   .content-wrapper & {
-    font-size: 3rem;
+    font-size: 2rem;
+
+    @include bp-medium() {
+      font-size: 3rem;
+    }
   }
 }
 

@@ -1,4 +1,9 @@
 <?php
+/*
+ * Template Name: About us
+ * Description: A Page Template with a darker design.
+ */
+
 /**
  * The template for displaying all pages.
  *
@@ -20,9 +25,9 @@
 
 $context = Timber::get_context();
 
-// Set a home page variable
-$context['is_front_page'] = 'true';
-$context['africa_map'] = file_get_contents(get_template_directory_uri() . '/dist/assets/images/africa-map.svg');
+if (!($post->carousel_shortcode || $post->hero_video)) {
+  $context['no_hero'] = 'no-hero';
+};
 
 $context['title'] = $post->post_title;
 if ($post->hero_title) {
@@ -31,8 +36,11 @@ if ($post->hero_title) {
 if ($post->hero_subtitle) {
   $context['subtitle'] = $post->hero_subtitle;
 };
-if ($post->video_youtube_id) {
-  $context['video_youtube_id'] = $post->video_youtube_id;
+if ($post->contact_form) {
+  $context['contact_form'] = $post->contact_form;
 };
 
-Timber::render(array('page-home.twig'), $context);
+$context['template'] = get_page_template_slug($post->ID);
+$context['body_class'] .= ' page-' . $post->post_name;
+
+Timber::render( array( 'page-about-us.twig' ), $context );

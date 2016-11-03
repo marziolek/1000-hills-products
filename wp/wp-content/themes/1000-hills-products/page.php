@@ -19,4 +19,23 @@
  */
 
 $context = Timber::get_context();
+
+if (!($post->carousel_shortcode || $post->hero_video)) {
+  $context['no_hero'] = 'no-hero';
+};
+
+$context['title'] = $post->post_title;
+if ($post->hero_title) {
+  $context['title'] = $post->hero_title;
+};
+if ($post->hero_subtitle) {
+  $context['subtitle'] = $post->hero_subtitle;
+};
+if ($post->contact_form) {
+  $context['contact_form'] = $post->contact_form;
+};
+
+$context['template'] = get_page_template_slug($post->ID);
+$context['body_class'] .= ' page-' . $post->post_name;
+
 Timber::render( array( 'page-' . $post->post_name . '.twig', 'page.twig' ), $context );

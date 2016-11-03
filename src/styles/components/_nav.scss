@@ -2,7 +2,132 @@
 
 .nav {
   &-main {
+    @include trans(transform);
+    
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 60%;
+    height: 100vh;
+    padding-top: 1em;
     display: inline-block;
     vertical-align: middle;
+    background-color: $color-brown;
+    transform: translate3d(100%, 0, 0);
+    
+    .menu-open & {
+      transform: translate3d(0, 0, 0);
+    }
+
+    @include bp-medium() {
+      position: static;
+      width: auto;
+      height: auto;
+      padding-top: 0;
+      background-color: transparent;
+      transform: translate3d(0, 0, 0);
+    }
+  }
+
+  &-toggle {
+    @include trans(all, 0.5s, 0s, ease-in-out);
+
+    position: fixed;
+    right: $space;
+    top: $space * 2.5;
+    width: $space * 2.25;
+    height: $space * 2;
+    transform: translate3d(0,0,0) rotate(0deg);
+    cursor: pointer;
+    z-index: 999;
+    
+    @include bp-medium() {
+      display: none;
+    }
+
+    span {
+      @include trans(all, 0.25s, 0s, ease-in-out);
+
+      display: block;
+      position: absolute;
+      height: 8px;
+      width: 50%;
+      background: $color-brown;
+      opacity: 1;
+      border: 1px solid rgba($color-white, 0.4);
+      transform: rotate(0deg);
+
+      &:nth-child(even) {
+        left: 50%;
+        border-radius: 0 9px 9px 0;
+        border-left: none;
+      }
+
+      &:nth-child(odd) {
+        left: 0;
+        border-radius: 9px 0 0 9px;
+        border-right: none;
+      }
+
+      &:nth-child(1), 
+      &:nth-child(2) {
+        top: 0;
+      }
+
+      &:nth-child(3), 
+      &:nth-child(4) {
+        top: 16px;
+      }
+
+      &:nth-child(5), 
+      &:nth-child(6) {
+        top: 32px;
+      }
+    }
+
+    &.open {
+      span {
+        background-color: $color-white;
+
+        &:nth-child(1),&:nth-child(6) {
+          transform: rotate(45deg);
+        }
+
+        &:nth-child(2),
+        &:nth-child(5) {
+          transform: rotate(-45deg);
+        }
+
+        &:nth-child(1) {
+          left: 5px;
+          top: 7px;
+        }
+
+        &:nth-child(2) {
+          left: calc(50% - 5px);
+          top: 7px;
+        }
+
+        &:nth-child(3) {
+          left: -50%;
+          opacity: 0;
+        }
+
+        &:nth-child(4) {
+          left: 100%;
+          opacity: 0;
+        }
+
+        &:nth-child(5) {
+          left: 5px;
+          top: 20px;
+        }
+
+        &:nth-child(6) {
+          left: calc(50% - 5px);
+          top: 20px;
+        }
+      }
+    }
   }
 }

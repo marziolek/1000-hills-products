@@ -4,7 +4,16 @@ var $ = require('jquery');
 var skrollr = require('skrollr');
 
 var hero = function () {
-  var $win = $(window), heroItems, heroItemImg;
+  var $win = $(window), body = $('body'), heroItems, heroItemImg, s, scrollTop = 100;
+  var mobileScroll = function() {
+    $win.scroll( function() {
+      if ($win.scrollTop() > scrollTop) {
+        body.addClass('scrolled')
+      } else {
+        body.removeClass('scrolled')
+      }
+    });
+  };
 
   $win.on('load', function() {
     heroItems = $('.owl-item');
@@ -15,7 +24,12 @@ var hero = function () {
       parent.addClass('owl-item--bg').attr('data-0', 'transform: translate3d(0,0%,0) scale(1)').attr('data-top-bottom', 'transform: translate3d(0,-10%,0) scale(1.2)').css('background-image', 'url(' + imgUrl + ')');
     });
 
-    skrollr.init({forceHeight: false});
+    s = skrollr.init({forceHeight: false});
+
+    if (s.isMobile()) {
+      s.destroy();
+      mobileScroll();
+    }
   });
 };
 

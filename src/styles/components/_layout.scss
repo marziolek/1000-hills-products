@@ -21,4 +21,19 @@
       max-width: $bp-medium - 308;
     }
   }
+
+  &--content {
+    padding-top: 5em;
+    padding-bottom: 5em;
+
+    .no-hero .content-wrapper > & {
+      padding-top: 16.5em;
+    }
+    
+    p {
+      &:last-of-type {
+        margin-bottom: 0;
+      }
+    }
+  }
 }

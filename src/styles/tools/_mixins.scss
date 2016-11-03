@@ -21,6 +21,13 @@
   }
 }
 
+/* 1240px */
+@mixin bp-xlarge {
+  @media (min-width: $bp-xlarge) {
+    @content;
+  }
+}
+
 /* 1600px */
 @mixin bp-full {
   @media (min-width: $bp-full) {

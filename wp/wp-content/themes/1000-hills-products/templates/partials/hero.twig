@@ -1,5 +1,10 @@
 {{ post.get_field('carousel_shortcode')|shortcodes }}
-{% if template != 'page-product.php' %}
+{% if template in ['page-product.php', 'page-contact-us.php', 'page-about-us.php'] %}
+  <h1 class="hero-video--title" data-0="top: 50%; transform: translate3d(0,-50%,0); opacity: 1;" data-100p="top: 90%; transform: translate3d(0,110%,0); opacity: 0;">{{ title }}</h1>
+  {% if subtitle %}
+    <h2 class="hero-video--subtitle" data-0="top: 60%; transform: translate3d(0,-50%,0); opacity: 1; letter-spacing: 0.2em;" data-80p="top: 92%; transform: translate3d(0,520%,0); opacity: 0; letter-spacing: 0.5em">{{ subtitle }}</h2>
+  {% endif %}
+{% else %}
   <header class="hero-heading" data-0="top: 50%; opacity: 1;" data-100p="top: 100%; opacity: 0;">
     <h1 class="hero-title">{{ title }}</h1>
     <h2 class="hero-subtitle">{{ subtitle }}</h2>
@@ -9,9 +14,4 @@
       </div>
     {% endif %}
   </header>
-{% else %}
-  <h1 class="hero-video--title" data-0="top: 50%; transform: translate3d(0,-50%,0); opacity: 1;" data-100p="top: 90%; transform: translate3d(0,110%,0); opacity: 0;">{{ title }}</h1>
-  {% if subtitle %}
-    <h2 class="hero-video--subtitle" data-0="top: 60%; transform: translate3d(0,-50%,0); opacity: 1; letter-spacing: 0.2em;" data-80p="top: 92%; transform: translate3d(0,520%,0); opacity: 0; letter-spacing: 0.5em">{{ subtitle }}</h2>
-  {% endif %}
 {% endif %}

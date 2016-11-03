@@ -22,6 +22,15 @@
             <nav id="nav-main" class="nav-main" role="navigation">
               {% include "partials/menu.twig" with {'menu': menu.get_items} %}
             </nav><!-- #nav -->
+            <div class="header-menu--bg" data-82p="opacity: 0;" data-95p="opacity: 1;"></div>
+            <div id="nav-toggle" class="nav-toggle">
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+              <span></span>
+            </div>
           </div>
         </div>
         {% endblock %}
@@ -35,6 +44,49 @@
       
       {% if post.get_field('hero_video') %}
         {% include 'partials/hero-video.twig' %}
+      {% endif %}
+      
+      {% if video_youtube_id %}
+        <script type="text/javascript">
+          var tag = document.createElement('script');
+          tag.src = "https://www.youtube.com/player_api";
+          var firstScriptTag = document.getElementsByTagName('script')[0];
+          firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+          var player;
+          function onYouTubePlayerAPIReady() {
+            player = new YT.Player('ytplayer', {
+                height: '390',
+                width: '640',
+                videoId: '{{ video_youtube_id }}',
+                playerVars: {
+                  autoplay: 1,
+                  controls: 0,
+                  disablekb: 1,
+                  loop: 1,
+                  modestbranding: 0,
+                  showinfo: 0,
+                  autohide: 0,
+                  color: 'white',
+                  iv_load_policy: 3,
+                  theme: 'light',
+                  rel: 0,
+                  playlist: '{{ video_youtube_id }}'
+                },
+                events: {
+                  'onReady': onPlayerReady,
+                }
+            });
+          }
+
+          function onPlayerReady(event){
+            player.mute();
+            player.setLoop(true);
+          }
+        </script>
+        <section class="youtube-wrapper">
+          <div id="ytplayer"></div>
+        </section>
       {% endif %}
       
       {% block content %}
