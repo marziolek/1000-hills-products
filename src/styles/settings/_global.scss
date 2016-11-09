@@ -3,9 +3,10 @@
 // Font definitions
 @import url('https://fonts.googleapis.com/css?family=Oswald:400,700|Playfair+Display:400,400i,700,700i,900,900i|Sacramento|Suez+One|Trocchi');
 
-$font-playfair: 'Playfair Display', serif;
+$font-ajenson: 'ajenson-regular', 'Playfair Display', serif;
+$font-ajenson-bold: 'ajenson-bold', 'Playfair Display', serif;
 $font-oswald: 'Oswald', sans-serif;
-$font-serif: $font-playfair;
+$font-serif: $font-ajenson;
 $font-sansserif: $font-oswald;
 
 // Breakpoints

@@ -41,7 +41,6 @@
 
   .owl-prev,
   .owl-next {
-    display: block;
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
@@ -116,13 +115,19 @@
     }
 
     circle {
-      @include trans(opacity, 0.3s, 2.5s, ease-in-out);
+      @include trans(opacity, 0.3s, 4.5s, ease-in-out);
 
       opacity: 0;
     }
 
     &.animate {
-      animation: mapDrawOutline 2.5s ease-in-out forwards;
+      .cls-1 {
+        animation: mapDrawOutline 4.5s ease-in-out forwards;
+      }
+      
+      .cls-3 {
+        animation: mapDrawOutline 2.5s 4.5s ease-in-out forwards;
+      }
 
       circle {
         opacity: 1;
