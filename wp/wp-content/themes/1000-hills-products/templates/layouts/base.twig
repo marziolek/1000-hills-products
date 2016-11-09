@@ -71,10 +71,12 @@
                   iv_load_policy: 3,
                   theme: 'light',
                   rel: 0,
-                  playlist: '{{ video_youtube_id }}'
+                  start: 204,
+                  end: 240
                 },
                 events: {
                   'onReady': onPlayerReady,
+                  'onStateChange': onPlayerStateChange
                 }
             });
           }
@@ -82,7 +84,43 @@
           function onPlayerReady(event){
             player.mute();
             player.setLoop(true);
+            
+            // for mobile
+            fakeClick(function() {
+              player.playVideo();
+            });
           }
+          
+          function fakeClick(fn) {
+            var $a = jQuery('<a href="#" id="fakeClick"></a>');
+                $a.bind("click", function(e) {
+                    e.preventDefault();
+                    fn();
+                });
+
+            jQuery("body").append($a);
+
+            var evt, 
+                el = jQuery("#fakeClick").get(0);
+
+            if (document.createEvent) {
+                evt = document.createEvent("MouseEvents");
+                if (evt.initMouseEvent) {
+                    evt.initMouseEvent("click", true, true, window, 0, 0, 0, 0, 0, false, false, false, false, 0, null);
+                    el.dispatchEvent(evt);
+                }
+            }
+
+            jQuery(el).remove();
+          }
+          
+          function onPlayerStateChange(event) {
+            if (event.data == YT.PlayerState.ENDED) {
+              player.seekTo(204);
+              player.playVideo();
+            }
+          }
+          
         </script>
         <section class="youtube-wrapper">
           <div id="ytplayer"></div>
