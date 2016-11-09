@@ -1,0 +1,36 @@
+// Owl carousel 
+
+.owl {
+  &-next,
+  &-prev {
+    @include trans(opacity);
+    
+    width: $space * 3;
+    height: $space * 4;
+    color: rgba($color-white, 0) !important;
+    text-shadow: none;
+    background: none !important;
+
+    &:before {
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+  }
+
+  &-next {
+    &:before {
+      background-image: url(../assets/images/chevron-right.svg);
+    }
+  }
+
+  &-prev {
+    &:before {
+      background-image: url(../assets/images/chevron-left.svg);
+    }
+  }
+}
