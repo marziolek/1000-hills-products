@@ -3,7 +3,7 @@
 var $ = require('jquery');
 
 var ajaxify = function () {
-  var bodybag = $('.bodybag'), links = $('a'), loader = $('.loader:not(.loader-home)'), timeout = 600;
+  var bodybag = $('.bodybag'), links = $('a:not(.extras)'), loader = $('.loader:not(.loader-home)'), timeout = 600;
 
   links.click( function(e) {
     e.preventDefault();
