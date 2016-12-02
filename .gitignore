@@ -51,3 +51,4 @@ npm-debug.log
 .vagrant
 dev-vhost.conf
 wp/wp-config-local.php
+src/assets/fonts/*
