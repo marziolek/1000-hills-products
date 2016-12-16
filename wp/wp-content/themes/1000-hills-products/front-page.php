@@ -35,4 +35,6 @@ if ($post->video_youtube_id) {
   $context['video_youtube_id'] = $post->video_youtube_id;
 };
 
+$context['recognitions'] = new TimberPost(24);
+
 Timber::render(array('page-home.twig'), $context);

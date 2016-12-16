@@ -44,6 +44,11 @@
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
+    opacity: 1 !important;
+
+    &:hover {
+      opacity: 0.5 !important;
+    }
   }
 
   .owl-prev {

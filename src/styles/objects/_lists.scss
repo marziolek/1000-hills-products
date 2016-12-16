@@ -1,0 +1,26 @@
+// Remove bullets and indents from lists
+
+.o-list {
+  &-bare {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    text-align: center;
+  }
+
+  &--item-in-row {
+    display: inline-block;
+    
+    & + & {
+      margin-left: $space * 2;
+    }
+
+    a {
+      display: block;
+      
+      &:after {
+        display: none;
+      }
+    }
+  }
+}
